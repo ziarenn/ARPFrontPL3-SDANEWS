@@ -1,14 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   return (
     <nav>
       <h1>SDA NEWS</h1>
-      <button>Home</button>
-      <button>Search</button>
-      <button>Login</button>
-      <button onClick={() => props.setCounter(props.counter + 1)}>+1</button>
-      <span>{props.counter}</span>
+      <Link to="/">
+        <button>Home</button>
+      </Link>
+      <Link to="/search">
+        <button>Search</button>
+      </Link>
+      <Link to="/login">
+        <button>Login</button>
+      </Link>
     </nav>
   );
 };

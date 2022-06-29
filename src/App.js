@@ -1,21 +1,51 @@
-import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
-import Counter from "./components/Counter/Counter";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
+import LoginPage from "./components/Login/LoginPage";
+import Register from "./components/Login/Register/Register";
 function App() {
-  const [counter, setCounter] = useState(0);
-
   return (
     <div className="App">
-      <Navbar counter={counter} setCounter={setCounter} />
-      <Counter counter={counter} />
-      <span>Counter z komponentu niżej: {counter}</span>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path='/' element={<HomePage/>} /> */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
 
-// W Navbar.js dodaj Button który będzie aktualizował stan counter w App.js i wyświetlaj ten counter w Navbar.js w spanie
+// Dla wszystkich komponentów tworzycie dedykowane foldery w folderze components
 
-// Przekaż stan counter z App.js do Counter.js i tam go wyświetl
+// 1. Article.js
+// Element li
+// w elemencie li:
+// a w którym zawierać ma się tag img, span z przykładowym tekstem
+
+// 2. Form.js
+
+// Element form
+// w form input type text i button type submit
+
+// 3. HomePage.js
+// h2 Today's hottest news:
+// pusty ul
+
+// 4. LoginForm.js
+// Element form
+// w formie ma być input type email, input type password, button type submit z textem Log in
+
+// 5. Register.js
+// Element form
+// w formie ma być: h2 z tekstem Register new account, input type email, input type password x2, button submit z tekstem Register
+
+// 6. LoginPage.js
+// Wyrenderuj LoginForm.js
+// h2 Don't have an account yet? Register now!
+// button type button Register
