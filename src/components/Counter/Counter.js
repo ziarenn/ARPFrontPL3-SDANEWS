@@ -1,12 +1,19 @@
 import { useState } from "react";
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
+const Counter = (props) => {
+  const [count, setCount] = useState(props.starterCounter);
+  //{ starterCounter }
+  const clickHandler = () => {
+    setCount(count + 1);
+    props.setCounter(count + 1);
+  };
+
+  // button.addEventListener("click", clickHandler);
 
   return (
     <>
       <span>{count}</span>
-      <button onClick={() => setCount(count + 1)}>Add 1</button>
+      <button onClick={clickHandler}>Add 1</button>
     </>
   );
 };
