@@ -3,13 +3,12 @@ import Navbar from "./components/Navbar/Navbar";
 import Counter from "./components/Counter/Counter";
 
 function App() {
-  const starterCounter = 5;
-  const [counter, setCounter] = useState();
+  const [counter, setCounter] = useState(0);
 
   return (
     <div className="App">
-      <Navbar />
-      <Counter starterCounter={starterCounter}  setCounter={setCounter}/>
+      <Navbar counter={counter} setCounter={setCounter} />
+      <Counter counter={counter} />
       <span>Counter z komponentu niżej: {counter}</span>
     </div>
   );
@@ -17,5 +16,6 @@ function App() {
 
 export default App;
 
-// starterCounter={starterCounter} name="Ania"
-// {starterCounter: starterCounter, name: 'Ania'}
+// W Navbar.js dodaj Button który będzie aktualizował stan counter w App.js i wyświetlaj ten counter w Navbar.js w spanie
+
+// Przekaż stan counter z App.js do Counter.js i tam go wyświetl
