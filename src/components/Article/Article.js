@@ -1,11 +1,11 @@
 import React from "react";
 
-const Article = () => {
+const Article = ({ art }) => {
   return (
     <li>
-      <a href="#">
-        <img src="/" alt="alt" />
-        <span>123 Span 123</span>
+      <a href={art.url}>
+        <img src={art.urlToImage} alt={art.title} style={{ height: "50px" }} />
+        <span>{art.title}</span>
       </a>
     </li>
   );

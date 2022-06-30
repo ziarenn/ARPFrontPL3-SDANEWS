@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import LoginPage from "./components/Login/LoginPage";
 import Register from "./components/Login/Register/Register";
+import Search from "./components/Search/Search";
 function App() {
   return (
     <div className="App">
@@ -10,7 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path='/' element={<HomePage/>} /> */}
+          <Route path="/search" element={<Search />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />
         </Routes>
@@ -49,3 +50,13 @@ export default App;
 // Wyrenderuj LoginForm.js
 // h2 Don't have an account yet? Register now!
 // button type button Register
+
+// 7. Search
+// render Form.js
+// pusty ul
+
+// const x = [1, 2, 3, 4, 5, 6];
+
+// const y = [...x, ...z];
+
+// console.log(y);
