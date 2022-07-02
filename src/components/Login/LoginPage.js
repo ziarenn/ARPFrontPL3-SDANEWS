@@ -15,3 +15,7 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+// 1. Wszystko ma być obwinięte w Card
+// 2. Wyrenderować LoginForm
+// 3. Card

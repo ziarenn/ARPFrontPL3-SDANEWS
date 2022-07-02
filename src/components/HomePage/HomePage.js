@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_KEY } from "../../helpers/helpers";
 import Article from "../Article/Article";
+import { Typography } from "@mui/material";
+import List from "@mui/material/List";
 
 const HomePage = () => {
   const [todaysArticles, setTodaysArticles] = useState([]);
@@ -27,12 +29,18 @@ const HomePage = () => {
 
   return (
     <>
-      <h2>Today's hottest news:</h2>
-      <ul>
+      <Typography
+        variant="h2"
+        align="center"
+        sx={{ fontSize: "2rem", my: "0.8rem" }}
+      >
+        Today's hottest news:
+      </Typography>
+      <List sx={{ width: "100%", alignContent: "center" }}>
         {todaysArticles.map((art, i) => {
           return <Article key={i} art={art} />;
         })}
-      </ul>
+      </List>
     </>
   );
 };
