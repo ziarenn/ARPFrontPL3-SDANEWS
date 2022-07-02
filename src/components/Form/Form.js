@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const Form = () => {
+const Form = ({ setKeyword }) => {
   const {
     register,
     handleSubmit,
@@ -10,6 +10,7 @@ const Form = () => {
 
   const submitHandler = (data) => {
     console.log(data);
+    setKeyword(data.keyword);
   };
 
   return (
