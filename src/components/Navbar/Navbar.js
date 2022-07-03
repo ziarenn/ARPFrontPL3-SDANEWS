@@ -142,7 +142,7 @@ const Navbar = (props) => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Link to="login" style={{ textDecoration: "none" }}>
+            <Link to="/login" style={{ textDecoration: "none" }}>
               <IconButton sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/" />
               </IconButton>

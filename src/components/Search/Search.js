@@ -3,6 +3,7 @@ import Form from "../Form/Form";
 import Article from "../Article/Article";
 import axios from "axios";
 import { API_KEY } from "../../helpers/helpers";
+import List from "@mui/material/List";
 const Search = () => {
   const [keyword, setKeyword] = useState("");
   const [articles, setArticles] = useState([]);
@@ -21,15 +22,21 @@ const Search = () => {
   return (
     <>
       <Form setKeyword={setKeyword} />
-      <ul>
+      <List
+        sx={{
+          width: "100%",
+          bgcolor: "background.paper",
+          alignContent: "center",
+        }}
+      >
         {articles.map((art, i) => {
           return <Article art={art} key={i} />;
         })}
-      </ul>
+      </List>
     </>
   );
 };
 
 export default Search;
 
-// 2. Wyświetl ul, w którym będą renderowane komponenty Article.js w pętli
+// ul=>List

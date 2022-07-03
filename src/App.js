@@ -5,6 +5,10 @@ import LoginPage from "./components/Login/LoginPage";
 import Register from "./components/Login/Register/Register";
 import Search from "./components/Search/Search";
 function App() {
+
+
+
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -60,3 +64,32 @@ export default App;
 // const y = [...x, ...z];
 
 // console.log(y);
+
+
+// W components nowy folder ProfilePhotoForm
+// 1. React hook form
+// 2. FB Storage i uploadBytes
+// 3. JSX:
+// a) tag form
+// b) Card
+// c) Typography
+// d) Button:
+// Typography Select a file
+// input type file hidden
+// Button submit
+
+
+// W App.js
+// 1. Stan loggedIn (useState)
+// 2. onAuthStateChanged, w callbacku:
+// a) jeżeli user istnieje to ustaw loggedIn na true
+// b) jeżeli user nie istnieje to ustaw loggedIn na false
+// 3. Stan loggedIn przekaż propsami do Navbar.js, UserPage.js
+
+// UserPage.js
+// Renderowanie warunkowe, && in React JSX
+// Jeżeli props.loggedIn === true, to render:
+// a) Typography h2 text: Your profile
+// b) Typography p text: Your email: (wymyśl jak wyświetlić email aktualnie zalogowanego użytkownika)
+// c) render ProfilePhotoForm
+// d) Button onClick => signOut text: Log out
