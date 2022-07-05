@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "./LoginForm/LoginForm";
 import { Link } from "react-router-dom";
-import ProfilePhotoForm from "../ProfilePhotoForm/ProfilePhotoForm";
+
 const LoginPage = () => {
   return (
     <>
@@ -10,7 +10,6 @@ const LoginPage = () => {
       <Link to="/register">
         <button>Register</button>
       </Link>
-      <ProfilePhotoForm />
     </>
   );
 };

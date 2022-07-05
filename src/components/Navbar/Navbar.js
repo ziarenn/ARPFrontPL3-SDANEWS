@@ -10,23 +10,29 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-
+import { auth, storage } from "../../helpers/firebaseConfig";
+import { ref, getDownloadURL } from "firebase/storage";
 import { Link } from "react-router-dom";
 
-{
-  /* <Link to="/">
-        <button>Home</button>
-      </Link>
-      <Link to="/search">
-        <button>Search</button>
-      </Link>
-      <Link to="/login">
-        <button>Login</button>
-      </Link> */
-}
-
-const Navbar = (props) => {
+const Navbar = ({ loggedIn }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [profilePhoto, setProfilePhoto] = React.useState("/");
+
+  React.useEffect(() => {
+    if (loggedIn) {
+      const profilePhotoRef = ref(
+        storage,
+        `gs://sda-news-5408b.appspot.com/users/${auth.currentUser.uid}/profile`
+      );
+      getDownloadURL(profilePhotoRef)
+        .then((url) => {
+          setProfilePhoto(url);
+        })
+        .catch((err) => {
+          setProfilePhoto(null);
+        });
+    }
+  }, [loggedIn]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -138,14 +144,29 @@ const Navbar = (props) => {
                 Search
               </Button>
             </Link>
-            {/* )) */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/" />
-              </IconButton>
+            <Link
+              to={`${loggedIn ? "/user" : "/login"}`}
+              style={{ textDecoration: "none" }}
+            >
+              {loggedIn ? (
+                <IconButton sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src={profilePhoto} />
+                </IconButton>
+              ) : (
+                <Button
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    textDecoration: "none",
+                  }}
+                >
+                  Log in
+                </Button>
+              )}
             </Link>
           </Box>
         </Toolbar>
